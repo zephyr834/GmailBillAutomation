@@ -8,6 +8,11 @@ Built on:
 Python3 - 3.11.9
 Mac
 
+## Configuration
+
+Follow instructions here to create a client ID and client secret: https://developers.google.com/gmail/api/auth/web-server
+Download the credentials and place it in the config folder as 'credentials.json'
+
 ## Install
 
 ```bash
@@ -15,6 +20,8 @@ pip3 install git+https://github.com/username/myapp
 ```
 
 ## Usage:
+
+Usage of the app requires
 
 ## Setup source code
 

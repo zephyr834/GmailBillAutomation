@@ -1,21 +1,22 @@
 #!/usr/bin/env python
-import os.path
+from pathlib import Path
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 def get_credentials():  
     # If modifying these scopes, delete the file token.json.
+    #TODO: Update this 
     SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
     
     creds = None
-    app_dir = os.getcwd()
-    cred_file = "credentials.json"
-    token_file = "token.json"
-    cred_path = os.path.join(app_dir, cred_file)
-    token_path = os.path.join(app_dir, token_file)
+    project_dir = Path.cwd()
+    cred_file = "config/credentials.json"
+    token_file = "config/token.json"
+    cred_path = project_dir / cred_file
+    token_path = project_dir / token_file
     
-    if os.path.exists(token_path):
+    if Path.exists(token_path):
         creds = Credentials.from_authorized_user_file(token_path, SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:

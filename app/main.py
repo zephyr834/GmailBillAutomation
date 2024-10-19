@@ -13,10 +13,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from googleapiclient.discovery import build
 from features.gmail import gmailAuth
-from features.gmail import gmailApi
+from features.gmail.gmailApi import GmailApi
 
 def main():
     """Shows basic usage of the Gmail API.
@@ -24,7 +23,8 @@ def main():
     """
     creds = gmailAuth.get_credentials()
     service = build("gmail", "v1", credentials=creds)
-    gmailApi.getMessages(service)
+    gmailApi = GmailApi(service)
+    gmailApi.getLabels()
 
 
 if __name__ == "__main__":
