@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from googleapiclient.errors import HttpError
 
 def getMessages(service):

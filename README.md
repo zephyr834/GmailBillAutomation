@@ -1,14 +1,12 @@
-# Myapp: A CLI Application.
+# Billing Automation Application.
 
 ## Description:
+
+This python application runs Gmail APIs to read bills, process them, and optionally create new Venmo Requests to other
 
 Built on:
 Python3 - 3.11.9
 Mac
-
-## Commands
-
-- `myCommand TITLE DESCRIPTION` : myCommand does something
 
 ## Install
 
@@ -18,17 +16,9 @@ pip3 install git+https://github.com/username/myapp
 
 ## Usage:
 
-`
-
 ## Setup source code
 
-The following steps are for cloning, modifying, testing the code.
-
-- Clone
-
-```bash
-git clone git@github.com:username/myapp.git
-```
+The following steps are for modifying and testing the code.
 
 - Setup virtual env
 
@@ -46,7 +36,7 @@ pip3 install -r requirements.txt
 - Run CLI
 
 ```bash
-python3 app/main.py [OPTIONS] COMMAND [ARGS]
+python3 app/main.py
 ```
 
 - Run tests
