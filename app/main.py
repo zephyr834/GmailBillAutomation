@@ -16,6 +16,7 @@
 from googleapiclient.discovery import build
 from features.gmail import gmailAuth
 from features.gmail.gmailApi import GmailApi
+import re
 
 def main():
     """Shows basic usage of the Gmail API.
@@ -24,8 +25,15 @@ def main():
     creds = gmailAuth.get_credentials()
     service = build("gmail", "v1", credentials=creds)
     gmailApi = GmailApi(service)
-    gmailApi.getLabels()
+    messages = gmailApi.getMessages("label:Bills")
+    pattern = r"\$[0-9]{1,3}(?:,[0-9]{3})*(?:\.[0-9]{2})?"
 
+    for m in messages['messages']:
+        msg = gmailApi.getMessageById(m['id'])
+        body = gmailApi.parseMessage(msg)
+        if body:
+            res = re.search(pattern, body)
+            print(res.group())
 
 if __name__ == "__main__":
     main()
